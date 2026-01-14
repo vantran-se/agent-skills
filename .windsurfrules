@@ -1,0 +1,5 @@
+# Windsurf Rules
+
+# Include skills directory as knowledge base.
+# Windsurf will index these files to provide context-aware assistance.
+/skills/**

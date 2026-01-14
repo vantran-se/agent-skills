@@ -24,7 +24,7 @@ Here's what really pisses me off: I wasted two weeks debugging "context growing"
 ### Before: The Disaster
 
 ```
-.claude/skills/
+skills/
 ├── cloudflare/           1,131 lines
 ├── cloudflare-workers/   ~800 lines
 ├── nextjs/               ~900 lines

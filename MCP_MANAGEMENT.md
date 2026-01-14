@@ -10,7 +10,7 @@ So then: **why don’t we load all MCP into the subagent’s context?**
 
 The idea is very simple: **“mcp-manager” subagent + “mcp-management” skills**
 
-1/ **“mcp-management” skills** will have script snippets to initialize MCP Client from “.claude/.mcp.json” (I move the “.mcp.json” file here so the main agent doesn’t load them into context from the start)
+1/ **“mcp-management” skills** will have script snippets to initialize MCP Client from “.mcp.json” (I move the “.mcp.json” file here so the main agent doesn’t load them into context from the start)
 
 2/ **“mcp-manager” subagent** is equipped with **“mcp-management” skills**
 

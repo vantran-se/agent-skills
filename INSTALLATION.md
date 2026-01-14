@@ -16,7 +16,7 @@ python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install all skill dependencies
-pip install -r .claude/skills/ai-multimodal/scripts/requirements.txt
+pip install -r skills/ai-multimodal/scripts/requirements.txt
 
 # Install test dependencies for development
 pip install pytest pytest-cov pytest-mock
@@ -27,7 +27,7 @@ pip install pytest pytest-cov pytest-mock
 Navigate to specific skill and install:
 
 ```bash
-cd .claude/skills/ai-multimodal/scripts
+cd skills/ai-multimodal/scripts
 pip install -r requirements.txt
 ```
 
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 Most skills use only Python standard library. Only **ai-multimodal** requires external packages:
 
-**ai-multimodal** (`.claude/skills/ai-multimodal/scripts/requirements.txt`):
+**ai-multimodal** (`skills/ai-multimodal/scripts/requirements.txt`):
 - `google-genai>=0.1.0` - Google Gemini API
 - `pypdf>=4.0.0` - PDF processing
 - `python-docx>=1.0.0` - DOCX conversion
@@ -91,7 +91,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Python packages (ai-multimodal only)
-cd .claude/skills/ai-multimodal/scripts
+cd skills/ai-multimodal/scripts
 pip install -r requirements.txt
 
 # System tools
@@ -112,7 +112,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Python packages (ai-multimodal only)
-cd .claude/skills/ai-multimodal/scripts
+cd skills/ai-multimodal/scripts
 pip install -r requirements.txt
 
 # System tools via Homebrew
@@ -131,7 +131,7 @@ python -m venv .venv
 .venv\Scripts\activate
 
 # Python packages (ai-multimodal only)
-cd .claude\skills\ai-multimodal\scripts
+cd skills\ai-multimodal\scripts
 pip install -r requirements.txt
 
 # System tools via Chocolatey
@@ -154,7 +154,7 @@ pytest-mock>=3.12.0
 To run tests for a skill:
 
 ```bash
-cd .claude/skills/{skill-name}/scripts
+cd skills/{skill-name}/scripts
 python -m pytest tests/ -v --cov=. --cov-report=term-missing
 ```
 
@@ -163,9 +163,9 @@ python -m pytest tests/ -v --cov=. --cov-report=term-missing
 Skills respect environment variable loading priority:
 
 1. **process.env** (highest priority - runtime environment)
-2. **`.claude/skills/{skill-name}/.env`** (skill-specific config)
-3. **`.claude/skills/.env`** (shared skills config)
-4. **`.claude/.env`** (global Claude config)
+2. **`skills/{skill-name}/.env`** (skill-specific config)
+3. **`skills/.env`** (shared skills config)
+4. **`.claude/.env`** (global Claude config - legacy)
 
 Example `.env` files are provided where needed (e.g., `devops/.env.example`).
 
@@ -206,7 +206,7 @@ node --version
 On Linux/macOS, you may need to make scripts executable:
 
 ```bash
-chmod +x .claude/skills/*/scripts/*.py
+chmod +x skills/*/scripts/*.py
 ```
 
 ## Minimal Installation
@@ -242,10 +242,10 @@ pip install pytest pytest-cov pytest-mock
 pre-commit install
 
 # Run all tests
-pytest .claude/skills/*/scripts/tests/ -v
+pytest skills/*/scripts/tests/ -v
 
 # Check coverage across all skills
-pytest .claude/skills/*/scripts/tests/ --cov=.claude/skills --cov-report=html
+pytest skills/*/scripts/tests/ --cov=skills --cov-report=html
 ```
 
 ## Skill-Specific Notes
